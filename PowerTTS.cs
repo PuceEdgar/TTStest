@@ -63,6 +63,7 @@ namespace TTStest
 				//TraceManager.AddInfoLog(string.Format("PTTS_Initialize : {0}", nInit));
 				PTTS_SetOemKey(OEMKeyNumber);
 				int nEngine = PTTS_LoadEngine(0, "PowerTTS_M_DB\\KO_KR\\", 0);
+				Console.WriteLine($"ENDGINE: {nEngine}");
 				//TraceManager.AddInfoLog(string.Format("PTTS_LoadEngine : {0}", nEngine));
 
 				//if (_dt재생 == null)
@@ -74,7 +75,7 @@ namespace TTStest
 			}
 			catch (Exception ex)
 			{
-				//TraceManager.AddLog(string.Format("### {0}\r\n{1} ###", ex.StackTrace, ex.Message));
+				Console.WriteLine(string.Format("### {0}\r\n{1} ###", ex.StackTrace, ex.Message));
 			}
 		}
 
@@ -142,7 +143,7 @@ namespace TTStest
 			}
 			catch (AccessViolationException ee)
 			{
-				//TraceManager.AddLog(string.Format("### {0}\r\n{1} ###", ee.StackTrace, ee.Message));
+				Console.WriteLine(string.Format("### {0}\r\n{1} ###", ee.StackTrace, ee.Message));
 				Close();
 				Open();
 			}
